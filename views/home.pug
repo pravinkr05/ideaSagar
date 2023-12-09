@@ -1,0 +1,44 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title IdeaSagar.com
+    //- // Include FontAwesome CSS
+    link(rel='icon', type='image/x-icon', href='https://cdn.iconscout.com/icon/premium/png-256-thumb/idea-60-172772.png')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
+    link(rel='stylesheet', href='/static/style.css')
+    link(rel='stylesheet', href='/static/responsive.css')
+  body
+    #C.Container
+      header
+        nav
+          a#home(href='/')
+            i.fa.fa-home
+            span.last-text home
+          a#post(href='/posts')
+            i.fa.fa-plus-circle
+            span.last-text try post
+          a#details(href='/details')
+            i.fas.fa-user-circle
+            span.last-text details
+          span.last
+            a#search(href='/search')
+              i.fas.fa-search
+              span.last-text search
+            a#logout(href='/logout')
+              i.fas.fa-sign-out-alt
+              span.last-text logout
+      #B.B
+        article
+          #messageDisplay.post
+            each message in messages
+                #messageInp
+                    p= `${message.sender}: ${message.text}`
+                    i.far.fa-comment-alt.mess
+        aside
+            each user in users
+                #userInp
+                    i.fas.fa-user-circle.me
+                    p= `${user.username}`
+    script(src='js/script.js')

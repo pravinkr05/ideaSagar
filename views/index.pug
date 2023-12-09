@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1 Chat App
+  form(action="/post-message" method="post")
+    label(for="text") Message:
+    input(type="text" name="text" required)
+    label(for="sender") Sender:
+    input(type="text" name="sender" required)
+    button(type="submit") Post
+
+  h2 Messages
+  ul
+    each message in messages
+      li= `${message.sender}: ${message.text} (${message.timestamp})`

@@ -1,0 +1,29 @@
+@media (min-width:900px){
+    .Container{
+        max-width: 60%;
+        margin:auto;
+        border-width: 0;
+        box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+
+    }
+}
+@media (max-width:900px){
+    .Container{
+       max-width:100%;
+       padding: 0 5px;
+    }
+}
+
+@media (max-width:700px){
+    .Container{
+       max-width:100%;
+       padding: 0 5px;
+    }
+    article{
+        width:100%;
+        padding: 0 5px;
+     }
+     aside{
+        display: none;
+     }
+}

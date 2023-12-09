@@ -1,0 +1,34 @@
+html(lang='en')
+  head
+  body
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title User Details
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
+    link(rel='stylesheet', href='/static/style.css')
+    link(rel='stylesheet', href='/static/responsive.css')
+    link(rel='stylesheet', href='/static/post.css')
+    link(rel='stylesheet', href='/static/details.css')
+    .Container
+      a#backbtn(href='/home')
+        i.fa.fa-arrow-circle-left
+      #userDetails.Cont
+        h1 Your Activity Details
+        img(src='/Img/user_image.jpg', alt='User Photo')
+        table
+          tbody
+            tr
+              th User Name :
+              td #{user.username}
+            tr
+              th Email :
+              td john@example.com
+            tr
+              th User ID :
+              td 12345
+            tr
+              th Password :
+              td #{user.password}
+        //-     // Add more rows as needed
+        //- // <h3>Posted Messages History</h3>
+        #postedMessages

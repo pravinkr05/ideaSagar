@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+  }
+
+  img {
+    width: 10%;
+  margin-top: 25px;
+    height: auto;
+    border-radius: 15%;
+  }
+
+  #userDetails {
+    margin-bottom: 20px;
+  }
+
+  .Cont{
+     text-align: center;
+  }
+  #postedMessages {
+    max-width: 600px;
+  }
+
+  #postedMessages p {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+
+  table{
+  
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    border-radius: 10px; /* Border radius for the entire table */
+    overflow: hidden;
+  }
+  th,td{
+      padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background-color: #e4e4e4;
+   color:rgb(134, 45, 45);
+  }
+ 

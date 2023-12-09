@@ -1,0 +1,12 @@
+
+block content 
+    //- | this is contact 
+    div.container
+        h1 Registration
+        form(class="myRegstr" action="/register-post" method="post") 
+            input(type="text" class="myInp" name="username" placeholder="username")
+            input(type="text" class="myInp" name="password" placeholder="password")
+            button(class="regstrbtn" type='submit')
+                | Register
+        
+        p #[a(href="/login") sign-in]

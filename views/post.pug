@@ -1,0 +1,22 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    title Text Editor
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css')
+    link(rel='stylesheet', href='/static/style.css')
+    link(rel='stylesheet', href='/static/responsive.css')
+    link(rel='stylesheet', href='/static/post.css')
+    style.
+  body
+    .Container
+      a#backbtn(href='/home')
+        i.fa.fa-arrow-circle-left
+      h1 Share Your Message
+      form(action="/post-message" method="post")
+        textarea#messageInput(type ="text" placeholder="Write your message here..." name="text")
+        button(type="submit") Post
+      #postedMessages
+    |  
+    //- script(src='/js/script.js')
