@@ -106,8 +106,12 @@ aside{
     box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
     border-radius: 5px;
     padding:10px;
+    cursor: pointer;
 }
-
+ aside i{
+    color: blue;
+   
+ }
 
     #messageDisplay{
       padding: 20px 40px;
@@ -138,4 +142,20 @@ align-items: center;
     } */
     #userInp p{
       margin-left: 10px;
+      font-size: 0.9em;
+    }
+
+    #messageInp i{
+        color: rgb(255, 0, 255);
+        cursor: pointer;
+    }
+    #messageInp h3{
+        margin: 5px;
+        display: inline-block;
+        font-size: 0.95em;
+        color: rgb(52, 16, 97);
+    }
+    #messageInp p{
+        margin: 10px;
+        margin-left: 17px;
     }

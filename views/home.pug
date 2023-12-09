@@ -34,7 +34,10 @@ html(lang='en')
           #messageDisplay.post
             each message in messages
                 #messageInp
-                    p= `${message.sender}: ${message.text}`
+                    i.fas.fa-user-circle.me
+                    h3= `${message.sender}`
+                    hr
+                    p= `${message.text}`
                     i.far.fa-comment-alt.mess
         aside
             each user in users

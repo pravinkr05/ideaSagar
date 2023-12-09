@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-// const bodyParser = require('body-parser');
 const path = require('path');
 const session = require('express-session');
 
@@ -34,8 +33,9 @@ mongoose.connect(DB)
   }));
 
   const userSchema = new mongoose.Schema({
-    username: String,
-    password: String
+    useremail: String,
+    password: String,
+    username: String
 })
 
 const User = mongoose.model('User', userSchema);
@@ -49,17 +49,25 @@ app.get("/registration", (req, res) => {
 })
 
 app.post("/register-post", async (req, res) => {
-    const { username, password } = req.body;
-
-    try {
-      const newUser = new User({ username, password  });
-      await newUser.save();
-      console.log('New User stored successfully');
-      res.redirect('/');
-    } catch (error) {
-      console.error('Error storing message', error);
-      res.status(500).send('Internal Server Error');
-    }
+    const { useremail, password, username } = req.body;
+    await User.findOne({ useremail })
+        .then( async (user) =>  {
+            if (!user) {
+              try {
+                const newUser = new User({ useremail, password, username  });
+                await newUser.save();
+                console.log('New User stored successfully');
+                res.redirect('/');
+              } catch (error) {
+                console.error('Error storing message', error);
+                res.status(500).send('Internal Server Error');
+              }
+            }
+            else{
+              return res.status(500).json({ alert: 'already user exist' })
+            }
+        })
+   
 })
 
 
@@ -72,16 +80,17 @@ app.get("/login", (req, res) => {
 })
 
 app.post("/login-post", (req, res) => {
-    const { username, password } = req.body;
-    req.session.userdetails = { username, password };
-    User.findOne({ username })
+    const { useremail, password } = req.body;
+  
+    
+    User.findOne({ useremail })
         .then((user) => {
             if (!user) {
                 return res.status(500).json({ error: 'Invalid username' })
             }
             if (password === user.password) {
-
-                valid = true;
+              const username = user.username;
+              req.session.userdetails = {useremail,password, username};
                 return res.status(210).redirect('/');
             }
             else {
@@ -123,7 +132,7 @@ app.get("/",isAuthenticated, (req, res) => {
 
 const messageSchema = new mongoose.Schema({
   text: String,
-  sender: { type: String, default: "anonymus-user" },
+  sender: { type: String, default: "new-user" },
   timestamp: { type: Date, default: Date.now }
 });
 
@@ -131,9 +140,8 @@ const Message = mongoose.model('Message', messageSchema);
 
 app.get('/home',isAuthenticated, async (req, res) => {
   try {
-    const messages = await Message.find();
+    const messages = await Message.find().sort({ timestamp: 'desc' });
     const users = await User.find();
-    // res.render('index', { messages });
     res.render('home',{ messages ,users});
   } catch (error) {
     console.error('Error retrieving messages', error);

@@ -1,11 +1,12 @@
-
+link(rel='stylesheet', href='/static/register.css')
 block content 
     //- | this is contact 
     div.container
         h1 Registration
         form(class="myRegstr" action="/register-post" method="post") 
-            input(type="text" class="myInp" name="username" placeholder="username")
+            input(type="email" class="myInp" name="useremail" placeholder="useremail")
             input(type="text" class="myInp" name="password" placeholder="password")
+            input(type="text" class="myInp" name="username" placeholder="username")
             button(class="regstrbtn" type='submit')
                 | Register
         

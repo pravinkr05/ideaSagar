@@ -14,7 +14,7 @@ html(lang='en')
         i.fa.fa-arrow-circle-left
       #userDetails.Cont
         h1 Your Activity Details
-        img(src='/Img/user_image.jpg', alt='User Photo')
+        img(src='/static/user_img.jpg', alt='User Photo')
         table
           tbody
             tr
@@ -22,10 +22,7 @@ html(lang='en')
               td #{user.username}
             tr
               th Email :
-              td john@example.com
-            tr
-              th User ID :
-              td 12345
+              td #{user.useremail}
             tr
               th Password :
               td #{user.password}

@@ -1,0 +1,36 @@
+body{
+
+    background-color: rgba(112, 112, 112, 0.162);
+}
+.container{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.myLogin{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+ 
+    border-width: 0;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
+    border-radius: 5px; padding:20px; margin:12px 7px; 
+}
+.myInp{
+    border-color: rgba(113, 113, 201, 0.705);
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+.loginbtn{
+    cursor: pointer;
+    width: 10vw;
+    margin: auto;
+    border-radius: 10px;
+    
+}
